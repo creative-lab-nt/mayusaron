@@ -1,0 +1,373 @@
+<!-- 
+  変数の設定箇所です。
+  実際の値に書き換えてご使用ください。
+-->
+<!-- 
+SALON_NAME = ブローラボ 渋谷店
+CITY = 渋谷
+ADDRESS = 東京都渋谷区○○1-2-3
+ZIP = 150-0000
+TEL = 03-1234-5678
+OPEN = 10:00
+CLOSE = 20:00
+PRICE_INIT1 = 4,980
+PRICE_STD1 = 6,980
+PRICE_INIT2 = 5,980
+PRICE_STD2 = 7,980
+PRICE_INIT3 = 9,800
+PRICE_STD3 = 12,800
+PRICE_INIT_M = 4,980
+PRICE_STD_M = 6,980
+OPT = 1,000
+CANCEL_FEE = 50
+LAT = 35.6595
+LNG = 139.7005
+LP_URL = https://example.com/
+INSTAGRAM = https://instagram.com/example
+GOOGLE_BUSINESS = https://g.page/example
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブローラボ 渋谷店｜美眉スタイリング・眉毛ワックス・メンズ眉【渋谷駅徒歩5分】</title>
+    <meta name="description" content="骨格診断×黄金比、初回¥4,980、当日予約OK、LINE特典。渋谷で人気の眉毛サロン。あなたに一番似合う美眉を60分で。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "ブローラボ 渋谷店",
+      "description": "骨格診断×黄金比で、あなたに一番似合う美眉をデザインする眉毛専門サロンです。",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "○○1-2-3",
+        "addressLocality": "渋谷区",
+        "addressRegion": "東京都",
+        "postalCode": "150-0000",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "35.6595",
+        "longitude": "139.7005"
+      },
+      "telephone": "+81-3-1234-5678",
+      "openingHours": "Mo-Su 10:00-20:00",
+      "priceRange": "¥4,980 - ¥12,800",
+      "url": "https://example.com/",
+      "image": "https://example.com/images/hero.webp",
+      "sameAs": [
+        "https://instagram.com/example",
+        "https://g.page/example"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">ブローラボ</a>
+            <button class="hamburger" id="hamburger-button" aria-label="メニューを開く" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#menu">メニュー</a></li>
+                    <li><a href="#flow">施術の流れ</a></li>
+                    <li><a href="#case">事例</a></li>
+                    <li><a href="#reviews">口コミ</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                    <li><a href="#reserve" class="nav-reserve-button">予約</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-image-container">
+                <img src="assets/images/hero.webp" alt="眉毛サロンの施術風景" width="1200" height="800" fetchpriority="high">
+            </div>
+            <div class="hero-content">
+                <h1>一番似合う“美眉”を、60分で。</h1>
+                <p class="subtitle">渋谷で口コミ高評価／メンズOK／当日予約可</p>
+                <div class="trust-pill">
+                    <span>★4.8 / 500件の評価</span>
+                </div>
+                <a href="#reserve" class="cta-button">空き状況を確認する</a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>黄金比×顔型診断</h3>
+                        <p>骨格や筋肉の動きから、あなただけの眉の黄金比を導き出します。プロの視点で最も似合う形をご提案。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>長持ちWAX＆ラミネート</h3>
+                        <p>高品質なWAX脱毛で、美しい眉の形を長くキープ。最新のラミネーション技術で毛流れも整えます。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>自宅で再現できる眉メイク</h3>
+                        <p>施術後の美しい眉を、ご自身で維持できるよう丁寧にレクチャー。明日からのメイクが変わります。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="menu">
+            <div class="container">
+                <h2 class="section-title">メニュー・料金</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>メニュー</th>
+                                <th>初回</th>
+                                <th>通常</th>
+                                <th>所要時間</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>美眉スタイリング</td>
+                                <td>¥4,980</td>
+                                <td>¥6,980</td>
+                                <td>約60分</td>
+                            </tr>
+                            <tr>
+                                <td>美眉スタイリング + 眉ラミネーション</td>
+                                <td>¥5,980</td>
+                                <td>¥7,980</td>
+                                <td>約75分</td>
+                            </tr>
+                            <tr>
+                                <td>美眉スタイリング + 全顔WAX</td>
+                                <td>¥9,800</td>
+                                <td>¥12,800</td>
+                                <td>約90分</td>
+                            </tr>
+                            <tr>
+                                <td>メンズ美眉スタイリング</td>
+                                <td>¥4,980</td>
+                                <td>¥6,980</td>
+                                <td>約60分</td>
+                            </tr>
+                            <tr>
+                                <td>オプション：高保湿パック</td>
+                                <td colspan="2">¥1,000</td>
+                                <td>約10分</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="tax-note">※価格はすべて税込です。</p>
+            </div>
+        </section>
+
+        <section id="flow" class="flow">
+            <div class="container">
+                <h2 class="section-title">施術の流れ</h2>
+                <div class="flow-steps">
+                    <div class="step-item"><span>1</span>カウンセリング</div>
+                    <div class="step-item"><span>2</span>顔型・骨格診断</div>
+                    <div class="step-item"><span>3</span>デザイン提案</div>
+                    <div class="step-item"><span>4</span>WAX脱毛＆スタイリング</div>
+                    <div class="step-item"><span>5</span>メイク仕上げ＆アドバイス</div>
+                </div>
+                <div class="flow-warning">
+                    <p><strong>ご来店前のお願い</strong><br>施術効果を最大限に高めるため、ご来店前の最低2週間は眉毛の自己処理（カット、毛抜き、シェービング）をお控えください。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="case" class="case">
+            <div class="container">
+                <h2 class="section-title">施術事例</h2>
+                <div class="case-item">
+                    <div class="case-images">
+                        <figure>
+                            <img src="assets/images/before.webp" alt="施術前の眉" width="600" height="400" loading="lazy">
+                            <figcaption>Before</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="assets/images/after.webp" alt="施術後の整った眉" width="600" height="400" loading="lazy">
+                            <figcaption>After</figcaption>
+                        </figure>
+                    </div>
+                    <p class="case-description">眉の形を整え、WAX脱毛で余分な産毛を除去。自然で立体的ながらも、くっきりとした印象の美眉に仕上げました。</p>
+                </div>
+                <p class="disclaimer">※効果には個人差があります。カウンセリングにてご相談ください。</p>
+            </div>
+        </section>
+
+        <section id="reviews" class="reviews">
+            <div class="container">
+                <h2 class="section-title">お客様の声</h2>
+                <div class="review-grid">
+                    <div class="review-item">
+                        <p class="stars">★★★★★</p>
+                        <p class="nickname">A.M様</p>
+                        <p>初めての眉サロンでしたが、丁寧にカウンセリングしていただき安心でした。仕上がりも想像以上で、毎日のメイクが本当に楽になりました！</p>
+                    </div>
+                    <div class="review-item">
+                        <p class="stars">★★★★★</p>
+                        <p class="nickname">K.T様</p>
+                        <p>メンズ眉で利用しました。自然だけど清潔感のある印象になり、周りからの評判も良いです。また来月もお願いします。</p>
+                    </div>
+                    <div class="review-item">
+                        <p class="stars">★★★★☆</p>
+                        <p class="nickname">S.R様</p>
+                        <p>左右の眉の形が違うのが悩みでしたが、黄金比でデザインしてもらい、バランスの取れた綺麗な眉になりました。大満足です。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="staff" class="staff">
+            <div class="container">
+                <h2 class="section-title">スタッフ紹介</h2>
+                <p class="staff-message">
+                    当サロンのスタッフは、全員が厳しい研修をクリアした眉のプロフェッショナルです。お客様一人ひとりの骨格やライフスタイルに寄り添い、最高の「似合わせ眉」をご提案します。どんな小さなお悩みでも、お気軽にご相談ください。
+                </p>
+            </div>
+        </section>
+
+        <section id="access" class="access">
+            <div class="container">
+                <h2 class="section-title">アクセス</h2>
+                <div class="access-grid">
+                    <div class="access-info">
+                        <p><strong>サロン名:</strong> ブローラボ 渋谷店</p>
+                        <p><strong>住所:</strong> 〒150-0000 東京都渋谷区○○1-2-3</p>
+                        <p><strong>営業時間:</strong> 10:00〜20:00</p>
+                        <p><strong>アクセス:</strong> JR渋谷駅ハチ公口から徒歩5分</p>
+                    </div>
+                    <div class="access-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.747977733534!2d139.6983648152582!3d35.65858048019942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b58da977555%3A0x323c3c1353bca7a!2z5riL6LC36LC3!5e0!3m2!1sja!2sjp!4v1672531200000!5m2!1sja!2sjp" 
+                            width="600" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="サロンの地図">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reserve" class="reserve">
+            <div class="container">
+                <h2 class="section-title">ご予約</h2>
+                <form id="reserve-form" class="reserve-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">お名前（必須）</label>
+                        <input type="text" id="name" name="name" required>
+                        <p class="error-message" aria-live="polite"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">ご連絡先（電話番号 or LINE ID）（必須）</label>
+                        <input type="text" id="contact" name="contact" required>
+                        <p class="error-message" aria-live="polite"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">性別（必須）</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">選択してください</option>
+                            <option value="female">女性</option>
+                            <option value="male">男性</option>
+                        </select>
+                        <p class="error-message" aria-live="polite"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-select">ご希望のメニュー（必須）</label>
+                        <select id="menu-select" name="menu" required>
+                            <option value="">選択してください</option>
+                            <option value="styling">美眉スタイリング</option>
+                            <option value="styling_lamination">美眉スタイリング + 眉ラミネーション</option>
+                            <option value="styling_wax">美眉スタイリング + 全顔WAX</option>
+                            <option value="mens_styling">メンズ美眉スタイリング</option>
+                        </select>
+                        <p class="error-message" aria-live="polite"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="date1">ご希望日時（第1希望）（必須）</label>
+                        <input type="datetime-local" id="date1" name="date1" required>
+                        <p class="error-message" aria-live="polite"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="date2">ご希望日時（第2希望）</label>
+                        <input type="datetime-local" id="date2" name="date2">
+                    </div>
+                    <div class="form-group">
+                        <label for="date3">ご希望日時（第3希望）</label>
+                        <input type="datetime-local" id="date3" name="date3">
+                    </div>
+                    <div class="form-group">
+                        <label for="concerns">眉のお悩み（任意）</label>
+                        <textarea id="concerns" name="concerns" rows="4"></textarea>
+                    </div>
+                    <div class="form-group-checkbox">
+                        <input type="checkbox" id="agreement" name="agreement" required>
+                        <label for="agreement">
+                            <a href="#cancel-policy" class="policy-link">キャンセル規定</a>に同意します。（必須）
+                        </label>
+                        <p class="error-message" aria-live="polite"></p>
+                    </div>
+                    <button type="submit" class="cta-button">この内容で予約する</button>
+                </form>
+                <div id="form-success-toast" class="toast" role="alert">ご予約ありがとうございます。内容を確認の上、追ってご連絡いたします。</div>
+
+                <div id="cancel-policy" class="cancel-policy">
+                    <h3>注意事項・キャンセル規定</h3>
+                    <ul>
+                        <li>ご予約の変更・キャンセルは、予約日の前日20時までにご連絡ください。</li>
+                        <li>上記を過ぎてのキャンセルや無断キャンセルは、予約メニュー料金の50%をキャンセル料として申し受けます。</li>
+                        <li>ご予約時間に10分以上遅れた場合、施術内容の変更またはキャンセルとさせていただくことがございます。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <p><strong>事業者名:</strong> ブローラボ 渋谷店</p>
+                <p><strong>所在地:</strong> 〒150-0000 東京都渋谷区○○1-2-3</p>
+                <p><strong>電話番号:</strong> 03-1234-5678</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">プライバシーポリシー</a>
+                <div class="social-icons">
+                    <a href="https://instagram.com/example" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <!-- In-line SVG for icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://g.page/example" target="_blank" rel="noopener noreferrer" aria-label="Google Business Profile">
+                        <!-- In-line SVG for icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.2 15.2c-1.87 0-3.39-1.52-3.39-3.39s1.52-3.39 3.39-3.39c.93 0 1.77.38 2.38.98l-1.03 1.03c-.31-.29-.81-.59-1.35-.59-1.17 0-2.12.95-2.12 2.12s.95 2.12 2.12 2.12c1.38 0 1.84-1.01 1.9-1.52h-1.9v-1.4h3.3c.05.26.08.55.08.85 0 2.02-1.36 3.45-3.38 3.45z"></path></svg>
+                    </a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2024 ブローラボ 渋谷店. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
