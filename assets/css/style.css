@@ -300,6 +300,12 @@ tbody tr:nth-child(even) {
     background-color: var(--white);
 }
 
+.menu table thead th:nth-child(2),
+.menu table tbody td:nth-child(2) {
+    background-color: rgba(201, 162, 126, 0.2); /* Lighter accent color */
+    font-weight: 700;
+}
+
 .tax-note {
     text-align: right;
     font-size: 0.9rem;
