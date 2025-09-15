@@ -97,30 +97,49 @@ document.addEventListener('DOMContentLoaded', () => {
   // 画像ファイルが未配置の間、外部CDN画像へ差し替えます。
   // ローカル最適化画像へ移行（v1.02）時に削除してください。
   try {
+    const makePlaceholder = (w, h, label) => {
+      const svg = `<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f0e7dc"/><stop offset="100%" stop-color="#d7c1ad"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#5a4a3f" font-family="Arial, sans-serif" font-size="${Math.round(Math.min(w,h)/18)}">${label}</text></svg>`;
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    };
+
+    const setWithFallback = (img, url, alt, placeholderLabel, eager=false) => {
+      if (!img) return;
+      const applyPlaceholder = () => { img.src = makePlaceholder(img.width||600, img.height||400, placeholderLabel); img.alt = alt; };
+      let settled = false;
+      img.onload = () => { settled = true; };
+      img.onerror = () => { settled = true; applyPlaceholder(); };
+      if (eager) { img.loading = 'eager'; }
+      img.alt = alt;
+      img.src = url;
+      // timeout fallback (e.g., network block)
+      setTimeout(() => { if (!settled) applyPlaceholder(); }, 2500);
+    };
+
     // Hero image
     const heroImg = document.querySelector('.hero-image-container img');
-    if (heroImg) {
-      heroImg.src = 'https://source.unsplash.com/1600x900/?beauty,salon,interior';
-      heroImg.alt = '\u7709\u6bdb\u30b5\u30ed\u30f3\u306e\u5e97\u5185\u306e\u96f0\u56f2\u6c17\uff08\u30a4\u30e1\u30fc\u30b8\uff09';
-      heroImg.loading = 'eager';
-      heroImg.fetchPriority = 'high';
-    }
+    setWithFallback(
+      heroImg,
+      'https://source.unsplash.com/1600x900/?beauty,salon,interior',
+      '\u7709\u6bdb\u30b5\u30ed\u30f3\u306e\u5e97\u5185\u306e\u96f0\u56f2\u6c17\uff08\u30a4\u30e1\u30fc\u30b8\uff09',
+      'Brow Salon',
+      true
+    );
 
     // Case images (Before/After)
     const caseImgs = document.querySelectorAll('#case .case-images img');
     if (caseImgs && caseImgs.length >= 2) {
-      const beforeImg = caseImgs[0];
-      const afterImg = caseImgs[1];
-      if (beforeImg) {
-        beforeImg.src = 'https://source.unsplash.com/600x400/?eyebrow,closeup,beauty';
-        beforeImg.alt = '\u65bd\u8853\u524d\u306e\u7709\u306e\u72b6\u614b\uff08\u30a4\u30e1\u30fc\u30b8\uff09';
-        beforeImg.loading = 'lazy';
-      }
-      if (afterImg) {
-        afterImg.src = 'https://source.unsplash.com/600x400/?eyebrow,styling,beauty';
-        afterImg.alt = '\u65bd\u8853\u5f8c\u306b\u6574\u3063\u305f\u7709\uff08\u30a4\u30e1\u30fc\u30b8\uff09';
-        afterImg.loading = 'lazy';
-      }
+      setWithFallback(
+        caseImgs[0],
+        'https://source.unsplash.com/600x400/?eyebrow,closeup,beauty',
+        '\u65bd\u8853\u524d\u306e\u7709\u306e\u72b6\u614b\uff08\u30a4\u30e1\u30fc\u30b8\uff09',
+        'Before'
+      );
+      setWithFallback(
+        caseImgs[1],
+        'https://source.unsplash.com/600x400/?eyebrow,styling,beauty',
+        '\u65bd\u8853\u5f8c\u306b\u6574\u3063\u305f\u7709\uff08\u30a4\u30e1\u30fc\u30b8\uff09',
+        'After'
+      );
     }
   } catch (e) {
     console.warn('画像差し替えに失敗しました:', e);
