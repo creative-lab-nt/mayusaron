@@ -1,0 +1,31 @@
+﻿{
+    "before":  {
+                   "query":  "https://source.unsplash.com/1200x800/?eyebrow,closeup,beauty,face",
+                   "sizes":  [
+                                 480,
+                                 768,
+                                 1080
+                             ],
+                   "base":  null
+               },
+    "hero":  {
+                 "query":  "https://source.unsplash.com/1600x900/?beauty,salon,interior,minimal",
+                 "sizes":  [
+                               480,
+                               768,
+                               1080,
+                               1440,
+                               1920
+                           ],
+                 "base":  null
+             },
+    "after":  {
+                  "query":  "https://source.unsplash.com/1200x800/?eyebrow,styling,beauty,face",
+                  "sizes":  [
+                                480,
+                                768,
+                                1080
+                            ],
+                  "base":  null
+              }
+}

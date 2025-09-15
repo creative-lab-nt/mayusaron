@@ -1,0 +1,1 @@
+﻿fix: image fallback JS parse error
