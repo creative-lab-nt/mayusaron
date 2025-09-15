@@ -97,33 +97,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // 画像ファイルが未配置の間、外部CDN画像へ差し替えます。
   // ローカル最適化画像へ移行（v1.02）時に削除してください。
   try {
-    const imageReplacements = [
-      {
-        selector: 'img[src$="assets/images/hero.webp"]',
-        src: 'https://source.unsplash.com/1600x900/?beauty,salon,interior',
-        alt: '\u7709\u6bdb\u30b5\u30ed\u30f3\u306e\u5e97\u5185\u306e\u96f0\u56f2\u6c17\uff08\u30a4\u30e1\u30fc\u30b8\uff09'
-      },
-      {
-        selector: 'img[src$="assets/images/before.webp"]',
-        src: 'https://source.unsplash.com/600x400/?eyebrow,closeup,beauty',
-        alt: '\u65bd\u8853\u524d\u306e\u7709\u306e\u72b6\u614b\uff08\u30a4\u30e1\u30fc\u30b8\uff09'
-      },
-      {
-        selector: 'img[src$="assets/images/after.webp"]',
-        src: 'https://source.unsplash.com/600x400/?eyebrow,styling,beauty',
-        alt: '\u65bd\u8853\u5f8c\u306b\u6574\u3063\u305f\u7709\uff08\u30a4\u30e1\u30fc\u30b8\uff09'
-      }
-    ];
+    // Hero image
+    const heroImg = document.querySelector('.hero-image-container img');
+    if (heroImg) {
+      heroImg.src = 'https://source.unsplash.com/1600x900/?beauty,salon,interior';
+      heroImg.alt = '\u7709\u6bdb\u30b5\u30ed\u30f3\u306e\u5e97\u5185\u306e\u96f0\u56f2\u6c17\uff08\u30a4\u30e1\u30fc\u30b8\uff09';
+      heroImg.loading = 'eager';
+      heroImg.fetchPriority = 'high';
+    }
 
-    imageReplacements.forEach(cfg => {
-      const el = document.querySelector(cfg.selector);
-      if (el) {
-        el.setAttribute('src', cfg.src);
-        if (cfg.alt) el.setAttribute('alt', cfg.alt);
+    // Case images (Before/After)
+    const caseImgs = document.querySelectorAll('#case .case-images img');
+    if (caseImgs && caseImgs.length >= 2) {
+      const beforeImg = caseImgs[0];
+      const afterImg = caseImgs[1];
+      if (beforeImg) {
+        beforeImg.src = 'https://source.unsplash.com/600x400/?eyebrow,closeup,beauty';
+        beforeImg.alt = '\u65bd\u8853\u524d\u306e\u7709\u306e\u72b6\u614b\uff08\u30a4\u30e1\u30fc\u30b8\uff09';
+        beforeImg.loading = 'lazy';
       }
-    });
+      if (afterImg) {
+        afterImg.src = 'https://source.unsplash.com/600x400/?eyebrow,styling,beauty';
+        afterImg.alt = '\u65bd\u8853\u5f8c\u306b\u6574\u3063\u305f\u7709\uff08\u30a4\u30e1\u30fc\u30b8\uff09';
+        afterImg.loading = 'lazy';
+      }
+    }
   } catch (e) {
     console.warn('画像差し替えに失敗しました:', e);
   }
 });
-
