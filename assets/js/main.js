@@ -104,15 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setWithFallback = (img, url, alt, placeholderLabel, eager=false) => {
       if (!img) return;
-      const applyPlaceholder = () => { img.src = makePlaceholder(img.width||600, img.height||400, placeholderLabel); img.alt = alt; };
-      let settled = false;
-      img.onload = () => { settled = true; };
-      img.onerror = () => { settled = true; applyPlaceholder(); };
-      if (eager) { img.loading = 'eager'; }
+      const placeholder = makePlaceholder(img.width || 600, img.height || 400, placeholderLabel);
+      // show placeholder immediately
+      img.src = placeholder;
       img.alt = alt;
-      img.src = url;
-      // timeout fallback (e.g., network block)
-      setTimeout(() => { if (!settled) applyPlaceholder(); }, 2500);
+      if (eager) img.loading = 'eager';
+
+      // preload real image, then swap if success
+      const real = new Image();
+      real.onload = () => { img.src = url; };
+      real.onerror = () => { /* keep placeholder */ };
+      real.referrerPolicy = 'no-referrer';
+      real.src = url;
     };
 
     // Hero image
