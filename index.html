@@ -370,5 +370,23 @@ GOOGLE_BUSINESS = https://g.page/example
         </div>
     </footer>
     <script src="assets/js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        try {
+          var hero = document.querySelector('.hero-image-container img');
+          if (hero) {
+            hero.src = 'https://source.unsplash.com/1600x900/?beauty,salon,interior';
+            hero.alt = '眉毛サロンの店内の雰囲気（イメージ）';
+          }
+          var caseImgs = document.querySelectorAll('#case .case-images img');
+          if (caseImgs && caseImgs.length >= 2) {
+            caseImgs[0].src = 'https://source.unsplash.com/600x400/?eyebrow,closeup,beauty';
+            caseImgs[0].alt = '施術前の眉の状態（イメージ）';
+            caseImgs[1].src = 'https://source.unsplash.com/600x400/?eyebrow,styling,beauty';
+            caseImgs[1].alt = '施術後に整った眉（イメージ）';
+          }
+        } catch (e) { console.warn('inline image fallback failed', e); }
+      });
+    </script>
 </body>
 </html>
