@@ -91,4 +91,38 @@ document.addEventListener('DOMContentLoaded', () => {
             successToast.classList.remove('show');
         }, 4000);
     }
+
+    // --- v1.01 External image fallback (Unsplash) ---
+    // 画像ファイルがレポジトリに未配置の場合に、外部CDN画像へ差し替えます。
+    // 将来的にローカル最適化画像を追加したら、このブロックは削除してOKです。
+    try {
+        const imageReplacements = [
+            {
+                selector: 'img[src$="assets/images/hero.webp"]',
+                src: 'https://source.unsplash.com/1600x900/?beauty,salon,interior',
+                alt: '眉毛サロンの店内の雰囲気（イメージ）'
+            },
+            {
+                selector: 'img[src$="assets/images/before.webp"]',
+                src: 'https://source.unsplash.com/600x400/?eyebrow,closeup,beauty',
+                alt: '施術前の眉の状態（イメージ）'
+            },
+            {
+                selector: 'img[src$="assets/images/after.webp"]',
+                src: 'https://source.unsplash.com/600x400/?eyebrow,styling,beauty',
+                alt: '施術後に整った眉（イメージ）'
+            }
+        ];
+
+        imageReplacements.forEach(cfg => {
+            const el = document.querySelector(cfg.selector);
+            if (el) {
+                // 404対策で一旦差し替え
+                el.setAttribute('src', cfg.src);
+                if (cfg.alt) el.setAttribute('alt', cfg.alt);
+            }
+        });
+    } catch (e) {
+        console.warn('画像差し替えに失敗しました:', e);
+    }
 });
