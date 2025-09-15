@@ -374,16 +374,47 @@ GOOGLE_BUSINESS = https://g.page/example
       document.addEventListener('DOMContentLoaded', function () {
         try {
           var hero = document.querySelector('.hero-image-container img');
+          var caseImgs = document.querySelectorAll('#case .case-images img');
+
+          function setIfLoad(url, apply) {
+            var t = new Image();
+            t.onload = function () { try { apply(); } catch (e) {} };
+            t.onerror = function () {};
+            t.referrerPolicy = 'no-referrer';
+            t.src = url;
+          }
+
+          // 1) 既定はUnsplash（即時表示のため）
           if (hero) {
             hero.src = 'https://source.unsplash.com/1600x900/?beauty,salon,interior';
             hero.alt = '眉毛サロンの店内の雰囲気（イメージ）';
           }
-          var caseImgs = document.querySelectorAll('#case .case-images img');
           if (caseImgs && caseImgs.length >= 2) {
             caseImgs[0].src = 'https://source.unsplash.com/600x400/?eyebrow,closeup,beauty';
             caseImgs[0].alt = '施術前の眉の状態（イメージ）';
             caseImgs[1].src = 'https://source.unsplash.com/600x400/?eyebrow,styling,beauty';
             caseImgs[1].alt = '施術後に整った眉（イメージ）';
+          }
+
+          // 2) ローカル画像が存在すれば自動で置き換え（B対応）
+          if (hero) {
+            setIfLoad('assets/images/hero-w1080.jpg', function () {
+              hero.src = 'assets/images/hero-w1080.jpg';
+              hero.srcset = 'assets/images/hero-w480.jpg 480w, assets/images/hero-w768.jpg 768w, assets/images/hero-w1080.jpg 1080w, assets/images/hero-w1440.jpg 1440w, assets/images/hero-w1920.jpg 1920w';
+              hero.sizes = '(max-width: 768px) 100vw, 1200px';
+            });
+          }
+          if (caseImgs && caseImgs.length >= 2) {
+            setIfLoad('assets/images/before-w768.jpg', function () {
+              caseImgs[0].src = 'assets/images/before-w768.jpg';
+              caseImgs[0].srcset = 'assets/images/before-w480.jpg 480w, assets/images/before-w768.jpg 768w, assets/images/before-w1080.jpg 1080w';
+              caseImgs[0].sizes = '(max-width: 768px) 100vw, 600px';
+            });
+            setIfLoad('assets/images/after-w768.jpg', function () {
+              caseImgs[1].src = 'assets/images/after-w768.jpg';
+              caseImgs[1].srcset = 'assets/images/after-w480.jpg 480w, assets/images/after-w768.jpg 768w, assets/images/after-w1080.jpg 1080w';
+              caseImgs[1].sizes = '(max-width: 768px) 100vw, 600px';
+            });
           }
         } catch (e) { console.warn('inline image fallback failed', e); }
       });
